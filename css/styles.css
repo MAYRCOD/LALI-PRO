@@ -877,3 +877,23 @@ details[open] summary:hover [data-chev]{transform:rotate(45deg) scale(1.15)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* ——— облака в шапке на телефоне ———
+   Облака 1400×933 масштабируются по ширине, а общее img{max-width:100%}
+   не даёт им выйти за края экрана. На узком экране картинка сжимается
+   в низкую полоску, и верх страницы остаётся пустым небом.
+   Правила ниже действуют только до 700px — десктопная версия не меняется.
+   !important нужен потому, что размеры облаков заданы в разметке
+   атрибутом style, а его обычное правило из файла не перебивает.
+   Облака различаются по data-speed — он у каждого свой. */
+@media (max-width:700px){
+  [data-cloud]{max-width:none !important}
+  /* top в процентах считается от высоты всей страницы, а на телефоне она
+     почти вдвое длиннее, поэтому верхнему облаку отступ задан в пикселях. */
+  [data-speed="0.10"]{top:-60px !important;left:-120% !important;width:340% !important}
+  [data-speed="0.05"]{left:-115% !important;width:330% !important}
+  [data-speed="0.08"]{left:-85%  !important;width:290% !important}
+  [data-speed="0.06"]{left:-110% !important;width:300% !important}
+  [data-speed="0.09"]{left:-80%  !important;width:280% !important}
+  [data-speed="0.07"]{left:-100% !important;width:290% !important}
+}
