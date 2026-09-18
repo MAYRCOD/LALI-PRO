@@ -877,3 +877,36 @@ details[open] summary:hover [data-chev]{transform:rotate(45deg) scale(1.15)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* ——— фоновые облака ———
+   Картинка масштабируется по ширине, высота идёт следом за пропорцией 1400×933.
+   Поэтому на узком экране проценты от ширины дают низкое облако, и верх страницы
+   остаётся пустым небом — ниже ширина для телефона задана отдельно. */
+.cloud{
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+  will-change:transform;
+  /* Общее правило img{max-width:100%} обрезало бы облако до ширины экрана,
+     а оно должно выходить за края — иначе вместо неба видна одна полоска. */
+  max-width:none;
+}
+.cloud--1{top:-2%;left:-20%;width:140%;opacity:.85}
+.cloud--2{top:14%;left:-40%;width:130%;opacity:.7}
+.cloud--3{top:30%;left:10%;width:120%;opacity:.5}
+.cloud--4{top:48%;left:-35%;width:125%;opacity:.45}
+.cloud--5{top:66%;left:5%;width:115%;opacity:.4}
+.cloud--6{top:84%;left:-30%;width:120%;opacity:.35}
+
+@media (max-width:700px){
+  /* Ширина втрое больше экрана — облако снова высокое и накрывает верх страницы,
+     как на десктопе. left = (100% − width) / 2, чтобы облако осталось по центру. */
+  /* top в процентах считается от высоты всей страницы, а на телефоне она
+     почти вдвое длиннее — поэтому верхнему облаку отступ задан в пикселях. */
+  .cloud--1{top:-60px;left:-120%;width:340%}
+  .cloud--2{top:10%;left:-115%;width:330%}
+  .cloud--3{top:26%;left:-85%;width:290%}
+  .cloud--4{top:44%;left:-110%;width:300%}
+  .cloud--5{top:62%;left:-80%;width:280%}
+  .cloud--6{top:80%;left:-100%;width:290%}
+}
