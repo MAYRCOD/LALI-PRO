@@ -877,17 +877,3 @@ details[open] summary:hover [data-chev]{transform:rotate(45deg) scale(1.15)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
-
-/* ——— кнопки в карточках тарифов ——— */
-.cta{
-  display:flex;align-items:center;justify-content:center;
-  height:52px;padding:0 22px;border-radius:999px;margin-top:4px;
-  font:600 16px/1 Manrope,system-ui,sans-serif;text-decoration:none;text-align:center;
-  transition:transform 200ms cubic-bezier(.22,.61,.36,1),background 200ms ease,color 200ms ease;
-}
-.cta:hover{transform:translateY(-2px)}
-.cta:active{transform:scale(.985)}
-.cta--solid{background:#5E0F20;color:#fff;box-shadow:0 10px 28px rgba(66,10,22,.22)}
-.cta--solid:hover{background:#420A16;color:#fff}
-.cta--light{background:#fff;color:#5E0F20;box-shadow:0 10px 28px rgba(0,0,0,.18)}
-.cta--light:hover{background:#F1E7E9;color:#420A16}
